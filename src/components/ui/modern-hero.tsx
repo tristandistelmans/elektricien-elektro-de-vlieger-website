@@ -3,6 +3,12 @@
 import { motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
+import dynamic from "next/dynamic";
+
+const SubtleSparks = dynamic(
+  () => import("@/components/ui/subtle-sparks").then((m) => ({ default: m.SubtleSparks })),
+  { ssr: false }
+);
 
 export function ModernHero() {
   return (
@@ -21,14 +27,20 @@ export function ModernHero() {
 
       {/* DE VLIEGER logo overlay - positioned at panel/sky horizon */}
       <div className="absolute z-10 top-[34.7%] md:top-[30.5%] left-1/2 -translate-x-1/2 -translate-y-1/2 w-[100%] sm:w-[70%] md:w-[75%] lg:w-[67%]">
-        <Image
-          src="/images/logo-no-subtitle.png"
-          alt="De Vlieger"
-          width={1500}
-          height={160}
-          className="w-full h-auto"
-          priority
-        />
+        <div className="relative">
+          <Image
+            src="/images/logo-no-subtitle.png"
+            alt="De Vlieger"
+            width={1500}
+            height={160}
+            className="w-full h-auto relative z-10"
+            priority
+          />
+          {/* Subtle electric sparks around the logo */}
+          <div className="absolute -inset-[50%] z-[5]">
+            <SubtleSparks />
+          </div>
+        </div>
       </div>
 
       {/* Content */}
