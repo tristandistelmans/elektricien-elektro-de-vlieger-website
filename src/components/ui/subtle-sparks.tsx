@@ -47,7 +47,9 @@ class Spark {
     ctx.beginPath();
     ctx.globalAlpha = 1;
     ctx.strokeStyle = `rgba(255, 240, 120, 1)`;
-    ctx.lineWidth = this.width * 2;
+    ctx.lineWidth = this.width * 4;
+    ctx.shadowBlur = 16;
+    ctx.shadowColor = "rgba(255, 240, 120, 1)";
     ctx.moveTo(this.prevX, this.prevY);
     ctx.lineTo(this.x, this.y);
     ctx.stroke();
@@ -90,9 +92,9 @@ class MiniBolt {
     ctx.beginPath();
     ctx.globalAlpha = 1;
     ctx.strokeStyle = `rgba(255, 240, 140, 1)`;
-    ctx.lineWidth = 2.5;
-    ctx.shadowBlur = 24;
-    ctx.shadowColor = "rgba(255, 199, 54, 1)";
+    ctx.lineWidth = 4;
+    ctx.shadowBlur = 40;
+    ctx.shadowColor = "rgba(255, 230, 80, 1)";
     ctx.moveTo(this.segments[0].x, this.segments[0].y);
     for (let i = 1; i < this.segments.length; i++) {
       ctx.lineTo(this.segments[i].x, this.segments[i].y);
@@ -101,8 +103,9 @@ class MiniBolt {
     ctx.shadowBlur = 0;
 
     // Tiny glow at origin
-    const glow = ctx.createRadialGradient(this.x, this.y, 0, this.x, this.y, 15);
-    glow.addColorStop(0, `rgba(255, 199, 54, ${alpha * 0.9})`);
+    const glow = ctx.createRadialGradient(this.x, this.y, 0, this.x, this.y, 30);
+    glow.addColorStop(0, `rgba(255, 230, 80, 1)`);
+    glow.addColorStop(0.4, `rgba(255, 199, 54, ${alpha * 0.6})`);
     glow.addColorStop(1, "rgba(255, 199, 54, 0)");
     ctx.beginPath();
     ctx.globalAlpha = alpha;
@@ -137,14 +140,14 @@ export function SubtleSparks({ className = "" }: SubtleSparksProps) {
       ctx.clearRect(0, 0, w, h);
 
       // Spawn subtle sparks occasionally around the center area
-      if (frame % 8 === 0 && Math.random() > 0.4) {
+      if (frame % 4 === 0 && Math.random() > 0.3) {
         const x = w * 0.1 + Math.random() * w * 0.8;
         const y = h * 0.2 + Math.random() * h * 0.6;
         sparks.push(new Spark(x, y));
       }
 
       // Spawn a mini bolt rarely
-      if (frame % 30 === 0 && Math.random() > 0.5) {
+      if (frame % 15 === 0 && Math.random() > 0.3) {
         const x = w * 0.15 + Math.random() * w * 0.7;
         const y = h * 0.1 + Math.random() * h * 0.8;
         bolts.push(new MiniBolt(x, y));
