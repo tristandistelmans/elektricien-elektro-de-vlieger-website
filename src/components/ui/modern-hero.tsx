@@ -19,8 +19,8 @@ export function ModernHero() {
         />
       </div>
 
-      {/* DE VLIEGER logo overlay - responsive, always centered */}
-      <div className="absolute z-10 top-[28%] md:top-[32%] left-1/2 -translate-x-1/2 w-[70%] sm:w-[55%] md:w-[45%] lg:w-[40%]">
+      {/* DE VLIEGER logo overlay - positioned at panel/sky horizon */}
+      <div className="absolute z-10 top-[38%] md:top-[36%] left-1/2 -translate-x-1/2 -translate-y-1/2 w-[75%] sm:w-[60%] md:w-[50%] lg:w-[45%]">
         <Image
           src="/images/logo.png"
           alt="De Vlieger"
