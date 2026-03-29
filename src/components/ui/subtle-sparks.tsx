@@ -45,8 +45,8 @@ class Spark {
   render(ctx: CanvasRenderingContext2D) {
     const alpha = this.life / this.maxLife;
     ctx.beginPath();
-    ctx.globalAlpha = alpha * 0.7;
-    ctx.strokeStyle = `rgba(255, 199, 54, ${alpha})`;
+    ctx.globalAlpha = alpha;
+    ctx.strokeStyle = `rgba(255, 220, 80, ${alpha})`;
     ctx.lineWidth = this.width;
     ctx.moveTo(this.prevX, this.prevY);
     ctx.lineTo(this.x, this.y);
@@ -88,11 +88,11 @@ class MiniBolt {
   render(ctx: CanvasRenderingContext2D) {
     const alpha = this.life / this.maxLife;
     ctx.beginPath();
-    ctx.globalAlpha = alpha * 0.5;
-    ctx.strokeStyle = `rgba(255, 220, 100, ${alpha})`;
-    ctx.lineWidth = 1;
-    ctx.shadowBlur = 8;
-    ctx.shadowColor = "rgba(255, 199, 54, 0.4)";
+    ctx.globalAlpha = alpha * 0.8;
+    ctx.strokeStyle = `rgba(255, 230, 120, ${alpha})`;
+    ctx.lineWidth = 1.5;
+    ctx.shadowBlur = 14;
+    ctx.shadowColor = "rgba(255, 199, 54, 0.7)";
     ctx.moveTo(this.segments[0].x, this.segments[0].y);
     for (let i = 1; i < this.segments.length; i++) {
       ctx.lineTo(this.segments[i].x, this.segments[i].y);
@@ -102,7 +102,7 @@ class MiniBolt {
 
     // Tiny glow at origin
     const glow = ctx.createRadialGradient(this.x, this.y, 0, this.x, this.y, 15);
-    glow.addColorStop(0, `rgba(255, 199, 54, ${alpha * 0.25})`);
+    glow.addColorStop(0, `rgba(255, 199, 54, ${alpha * 0.45})`);
     glow.addColorStop(1, "rgba(255, 199, 54, 0)");
     ctx.beginPath();
     ctx.globalAlpha = alpha;
