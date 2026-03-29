@@ -3,8 +3,6 @@
 import { motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
-import { RevealText } from "@/components/ui/reveal-text";
-
 export function ModernHero() {
   return (
     <header className="relative w-full h-screen flex items-center justify-center overflow-hidden">
@@ -20,30 +18,28 @@ export function ModernHero() {
         />
       </div>
 
-      {/* Mobile: static logo */}
-      <div className="absolute z-10 top-[34.7%] left-1/2 -translate-x-1/2 -translate-y-1/2 w-[100%] sm:w-[70%] md:hidden">
+      {/* DE VLIEGER logo - positioned at panel/sky horizon */}
+      <div className="absolute z-10 top-[34.7%] md:top-[30.5%] left-1/2 -translate-x-1/2 -translate-y-1/2 w-[100%] sm:w-[70%] md:w-[75%] lg:w-[67%]">
         <Image
           src="/images/logo-no-subtitle.png"
           alt="De Vlieger"
           width={1500}
           height={160}
-          className="w-full h-auto"
+          className="w-full h-auto md:hidden"
           priority
         />
-      </div>
-
-      {/* Desktop: RevealText animated logo */}
-      <div className="absolute z-10 top-[30.5%] left-1/2 -translate-x-1/2 -translate-y-1/2 hidden md:block">
-        <RevealText
-          text="DE VLIEGER"
-          textColor="text-[#10113d]"
-          overlayColor="text-[#FFC736]"
-          fontSize="md:text-[100px] lg:text-[140px] xl:text-[170px]"
-          letterDelay={0.06}
-          overlayDelay={0.04}
-          overlayDuration={0.35}
-          springDuration={500}
-        />
+        {/* Desktop: individual letter hover effect */}
+        <div className="hidden md:flex items-center justify-center">
+          {"DE VLIEGER".split("").map((letter, i) => (
+            <span
+              key={i}
+              className="font-black tracking-tight leading-none cursor-pointer transition-colors duration-150 text-[#10113d] hover:text-[#FFC736]"
+              style={{ fontSize: "clamp(80px, 8vw, 160px)" }}
+            >
+              {letter === " " ? "\u00A0" : letter}
+            </span>
+          ))}
+        </div>
       </div>
 
       {/* Content */}
