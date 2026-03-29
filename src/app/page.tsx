@@ -299,9 +299,9 @@ export default function Home() {
 
       {/* -- 2. OVER ONS -- */}
       <section className="relative bg-white py-24 md:py-36 overflow-hidden">
-        {/* Full-width wavy marquee */}
-        <div className="absolute inset-0 z-0 flex items-center pointer-events-none overflow-hidden">
-          <svg viewBox="0 0 2200 200" className="w-[200%] h-[180px] md:h-[220px]" preserveAspectRatio="none">
+        {/* Full-width wavy marquee - hidden on mobile */}
+        <div className="absolute inset-0 z-0 hidden lg:flex items-center pointer-events-none overflow-hidden">
+          <svg viewBox="0 0 2200 200" className="w-[200%] h-[220px]" preserveAspectRatio="none">
             <defs>
               <path
                 id="wave-marquee"

@@ -14,7 +14,7 @@ export function ModernHero() {
           src="/images/hero-combined.jpg"
           alt="Elektro De Vlieger"
           fill
-          className="object-cover"
+          className="object-cover object-[50%_35%] md:object-center"
           priority
         />
       </div>
