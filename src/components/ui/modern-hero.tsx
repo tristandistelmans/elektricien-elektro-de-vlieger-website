@@ -20,7 +20,7 @@ export function ModernHero() {
       </div>
 
       {/* DE VLIEGER logo overlay - positioned at panel/sky horizon */}
-      <div className="absolute z-10 top-[46%] md:top-[32.5%] left-1/2 -translate-x-1/2 -translate-y-1/2 w-[90%] sm:w-[70%] md:w-[50%] lg:w-[45%]">
+      <div className="absolute z-10 top-[40%] md:top-[32.5%] left-1/2 -translate-x-1/2 -translate-y-1/2 w-[100%] sm:w-[70%] md:w-[50%] lg:w-[45%]">
         <Image
           src="/images/logo-no-subtitle.png"
           alt="De Vlieger"
