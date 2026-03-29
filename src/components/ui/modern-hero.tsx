@@ -26,7 +26,7 @@ export function ModernHero() {
           alt="De Vlieger"
           width={1500}
           height={160}
-          className="w-full h-auto brightness-0 invert opacity-90"
+          className="w-full h-auto"
           priority
         />
       </div>
