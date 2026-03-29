@@ -21,14 +21,31 @@ export function ModernHero() {
 
       {/* DE VLIEGER logo overlay - positioned at panel/sky horizon */}
       <div className="absolute z-10 top-[34.7%] md:top-[30.5%] left-1/2 -translate-x-1/2 -translate-y-1/2 w-[100%] sm:w-[70%] md:w-[75%] lg:w-[67%]">
-        <Image
-          src="/images/logo-no-subtitle.png"
-          alt="De Vlieger"
-          width={1500}
-          height={160}
-          className="w-full h-auto"
-          priority
-        />
+        <div className="relative overflow-hidden">
+          <Image
+            src="/images/logo-no-subtitle.png"
+            alt="De Vlieger"
+            width={1500}
+            height={160}
+            className="w-full h-auto"
+            priority
+          />
+          {/* Golden shine sweep */}
+          <div
+            className="absolute inset-0 pointer-events-none"
+            style={{
+              background: "linear-gradient(105deg, transparent 40%, rgba(255,199,54,0.35) 45%, rgba(255,255,255,0.5) 50%, rgba(255,199,54,0.35) 55%, transparent 60%)",
+              backgroundSize: "200% 100%",
+              animation: "logo-shine 4s ease-in-out infinite",
+            }}
+          />
+          <style jsx>{`
+            @keyframes logo-shine {
+              0%, 100% { background-position: 200% 0; }
+              50% { background-position: -200% 0; }
+            }
+          `}</style>
+        </div>
       </div>
 
       {/* Content */}
