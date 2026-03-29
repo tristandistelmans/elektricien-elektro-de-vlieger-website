@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
+
 export function ModernHero() {
   return (
     <header className="relative w-full h-screen flex items-center justify-center overflow-hidden">
@@ -18,28 +19,16 @@ export function ModernHero() {
         />
       </div>
 
-      {/* DE VLIEGER logo - positioned at panel/sky horizon */}
+      {/* DE VLIEGER logo overlay - positioned at panel/sky horizon */}
       <div className="absolute z-10 top-[34.7%] md:top-[30.5%] left-1/2 -translate-x-1/2 -translate-y-1/2 w-[100%] sm:w-[70%] md:w-[75%] lg:w-[67%]">
         <Image
           src="/images/logo-no-subtitle.png"
           alt="De Vlieger"
           width={1500}
           height={160}
-          className="w-full h-auto md:hidden"
+          className="w-full h-auto"
           priority
         />
-        {/* Desktop: individual letter hover effect */}
-        <div className="hidden md:flex items-center justify-center">
-          {"DE VLIEGER".split("").map((letter, i) => (
-            <span
-              key={i}
-              className="font-black tracking-tight leading-none cursor-pointer transition-colors duration-150 text-[#10113d] hover:text-[#FFC736]"
-              style={{ fontSize: "clamp(80px, 8vw, 160px)" }}
-            >
-              {letter === " " ? "\u00A0" : letter}
-            </span>
-          ))}
-        </div>
       </div>
 
       {/* Content */}
